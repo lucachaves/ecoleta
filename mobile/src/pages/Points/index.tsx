@@ -18,7 +18,7 @@ interface Item {
 interface Point {
   id: number;
   name: string;
-  image: string;
+  image_url: string;
   latitude: number;
   longitude: number;
 }
@@ -68,7 +68,6 @@ const Points = () => {
     api
       .get('items')
       .then((response) => {
-        console.log(response);
         setItems(response.data);
       })
       .catch((error) => console.log(error));
@@ -145,7 +144,7 @@ const Points = () => {
                     <Image
                       style={styles.mapMarkerImage}
                       source={{
-                        uri: point.image,
+                        uri: point.image_url,
                       }}
                     />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
